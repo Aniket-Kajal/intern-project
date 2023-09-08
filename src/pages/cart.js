@@ -42,18 +42,10 @@ function Cart() {
     setCart(getCartItems());
   };
 
-  useEffect(() => {
-    let total = 0;
-    let gstAmount = 0;
-    cart.map((item) => {
-      total += item.price * item.qty;
+  useEffect(() => { let total = 0; let gstAmount = 0; cart.map((item) => { total += item.price * item.qty;
     });
     gstAmount = (total * 18) / 100;
-    setYourCart({
-      ...yourCart,
-      subTotal: total,
-      gstAmount: gstAmount,
-      grandTotal: total + gstAmount,
+    setYourCart({...yourCart, subTotal: total, gstAmount: gstAmount,grandTotal: total + gstAmount,
     });
   }, [cart]);
 
